@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "name": "json-server",
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "name": "json",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "students": [
+    {
+      "id": 5,
+      "name": "abc",
+      "birth": 123
+    },
+    {
+      "id": 6,
+      "name": "Nguyễn Văn B",
+      "birth": 2003
+    }
+  ],
+  "albums": {
+    "id": 1,
+    "name": "typicode"
+  }
+}
