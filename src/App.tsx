@@ -21,29 +21,31 @@ import { CounterTk } from './components/CounterTk';
 
 
 
-
 function App() {
 
 
   return (
-    <BrowserRouter>
-    
-    <div>
-      <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
-        
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/" element={<ShowStudent />} />
-        <Route path="/create" element={<FormStudent />} />
-        <Route path="/edit/:id" element={<UpdateStudent />} />
-        <Route path="/countertk" element={<CounterTk />} />
-
-        {/* <Route path="/cart" element={<Cart />} /> */}
-
-        
-      </Routes>
+    <div className='App'>
+      <CounterTk/>
     </div>
-    </BrowserRouter>
+    // <BrowserRouter>
+    
+    // <div>
+    //   <Routes>
+    //     {/* <Route path="/" element={<HomePage />} /> */}
+        
+    //     <Route path="/about" element={<AboutPage />} />
+    //     <Route path="/" element={<ShowStudent />} />
+    //     <Route path="/create" element={<FormStudent />} />
+    //     <Route path="/edit/:id" element={<UpdateStudent />} />
+    //     <Route path="/countertk" element={<CounterTk />} />
+
+    //     {/* <Route path="/cart" element={<Cart />} /> */}
+
+        
+    //   </Routes>
+    // </div>
+    // </BrowserRouter>
   )
 }
 
