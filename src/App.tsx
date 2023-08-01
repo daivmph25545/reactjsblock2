@@ -17,6 +17,7 @@ import ShowStudent from './components/pages/student/ShowStudent';
 import FormStudent from './components/pages/student/FormStudent';
 import UpdateStudent from './components/pages/student/UpdateStudent';
 import Cart from './components/pages/student/Cart';
+import { CounterTk } from './components/CounterTk';
 
 
 
@@ -35,9 +36,11 @@ function App() {
         <Route path="/" element={<ShowStudent />} />
         <Route path="/create" element={<FormStudent />} />
         <Route path="/edit/:id" element={<UpdateStudent />} />
+        <Route path="/countertk" element={<CounterTk />} />
+
         {/* <Route path="/cart" element={<Cart />} /> */}
 
-
+        
       </Routes>
     </div>
     </BrowserRouter>

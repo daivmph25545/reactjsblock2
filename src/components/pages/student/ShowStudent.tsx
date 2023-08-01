@@ -40,7 +40,7 @@ const ShowStudent = () => {
 
     return (
         <>
-            <Cart />git add .
+            <Cart />
 
             {/* SHOW PRODUCT */}
 
