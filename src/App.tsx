@@ -5,6 +5,7 @@ import AddStudent from './components/pages/student/AddStudent';
 import Admin from './components/pages/student/Admin';
 import Signin from './components/pages/student/signin';
 import Signup from './components/pages/student/signup';
+import UserLayout from './components/layout/userLayout';
 
 
 
@@ -17,10 +18,11 @@ function App() {
       <Routes>
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
-        {/* <Route path='/' element={<UserLayout />}> */}
+        <Route path='/' element={<UserLayout />}>
         {/* <Route index element={<Homepage />} /> */}
-        {/* </Route> */}
+        </Route>
         {/* <Route path='product/:id' element={<DetailLayout />} /> */}
+        
 
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<Admin />} />
