@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { IStudent, deleteStudent, fetchSinhVienAction, loadingStudent, updateStudent } from "../../../store/student/action";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../store";
-import FormStudent from "./FormStudent";
+import FormStudent from "./AddStudent";
 import UpdateStudent from "./UpdateStudent";
 import { Link } from "react-router-dom";
 import { CartAction } from "../../../store/order/action";
@@ -12,7 +12,7 @@ import Cart from "./Cart";
 
 
 
-const ShowStudent = () => {
+const Admin = () => {
     const dispatch: Dispatch<any> = useDispatch();
     const studentState = useSelector(
         (state: IRootState) => state.sinhviens
@@ -24,7 +24,7 @@ const ShowStudent = () => {
         dispatch(loadingStudent(true))
         dispatch(fetchSinhVienAction())
     }, [dispatch])
-    
+
     if (!studentState.isDataLoaded) {
         return <div>Loading</div>
     }
@@ -41,7 +41,7 @@ const ShowStudent = () => {
 
     return (
         <>
-            <Cart />
+
 
             {/* SHOW PRODUCT */}
 
@@ -85,9 +85,12 @@ const ShowStudent = () => {
                                 <div className="flex justify-between">
 
                                     <h2 className="text-2xl font-semibold text-[#5F5E61] leading-tight">SẢN PHẨM CHUNG</h2>
-                                    <Link to={"/create"}>
+                
+                                    <Link to={"create"}>
                                         <button className="rounded-full bg-purple-500 hover:bg-blue-500 w-[100px] h-[30px] text-white">Thêm </button>
                                     </Link>
+                                    <Cart />
+                                    
                                 </div>
                                 <span className="text-[#5A6169] text-[16px] py-4">Danh mục sản phẩm</span>
                                 <div className="my-2 flex sm:flex-row flex-col">
@@ -165,7 +168,7 @@ const ShowStudent = () => {
                                                         </td>
                                                         <td className="px-10 py-12 border-b border-gray-200 bg-white text-sm flex">
                                                             <Link to={`/edit/${sv._id}`}>
-                                                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" >Sửa</button>
+                                                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" >Sửa</button>
                                                             </Link>
                                                             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-2" onClick={e => handleDeletesv(sv)}>Xoá</button>
                                                             <button className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-2" onClick={e => handleCart(sv)}>Add Cart</button>
@@ -200,8 +203,9 @@ const ShowStudent = () => {
                 </div>
 
             </div>
+            
         </>
     )
 }
 
-export default ShowStudent
+export default Admin

@@ -4,7 +4,7 @@ import { Dispatch } from "redux"
 import { IStudent, addStudent } from "../../../store/student/action"
 import { useNavigate } from "react-router-dom"
 
-const FormStudent = () => {
+const AddStudent = () => {
 
     const [name, setName] = useState<string>('')
     const [birth, setBirth] = useState<number>(0)
@@ -76,4 +76,4 @@ const FormStudent = () => {
     );
 }
 
-export default FormStudent
+export default AddStudent

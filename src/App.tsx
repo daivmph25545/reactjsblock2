@@ -1,14 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
-
-import {BrowserRouter , Routes, Route } from 'react-router-dom';
-import ShowStudent from './components/pages/student/ShowStudent';
-import FormStudent from './components/pages/student/FormStudent';
-import UpdateStudent from './components/pages/student/UpdateStudent';
-import Cart from './components/pages/student/Cart';
-// import { CounterTk } from './components/pages/student/CounterTk';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AdminLayout from './components/layout/adminLayout';
+import AddStudent from './components/pages/student/AddStudent';
+import Admin from './components/pages/student/Admin';
+import Signin from './components/pages/student/signin';
+import Signup from './components/pages/student/signup';
 
 
 
@@ -16,22 +12,25 @@ function App() {
 
 
   return (
-    
+
     <BrowserRouter>
-    <div>
       <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
-        
-        <Route path="/" element={<ShowStudent />} />
-        <Route path="/create" element={<FormStudent />} />
-        <Route path="/edit/:id" element={<UpdateStudent />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/signin' element={<Signin />} />
+        {/* <Route path='/' element={<UserLayout />}> */}
+        {/* <Route index element={<Homepage />} /> */}
+        {/* </Route> */}
+        {/* <Route path='product/:id' element={<DetailLayout />} /> */}
 
-        {/* <Route path="/cart" element={<Cart />} /> */}
-
-        
+        <Route path='/admin' element={<AdminLayout />}>
+          <Route index element={<Admin />} />
+          {/* <Route path='product/:id' element={<ProductUpdate/>}/> */}
+          <Route path='/admin/create' element={<AddStudent />} />
+        </Route>
       </Routes>
-    // </div>
     </BrowserRouter>
+
+
   )
 }
 

@@ -109,8 +109,6 @@ const Cart = () => {
                                     <td>{ToTalCart()}$</td>
                                 </tr>
                             </tbody>
-
-
                         </table>
                     </div>}
 
