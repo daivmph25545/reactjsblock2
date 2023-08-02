@@ -6,6 +6,8 @@ import Admin from './components/pages/student/Admin';
 import Signin from './components/pages/student/signin';
 import Signup from './components/pages/student/signup';
 import UserLayout from './components/layout/userLayout';
+import ProductDetail from './components/pages/student/productDetail';
+import DetailLayout from './components/layout/detailLayout';
 
 
 
