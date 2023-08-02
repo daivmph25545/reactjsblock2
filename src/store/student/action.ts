@@ -1,8 +1,7 @@
 import { AddStudentDispatchType, DeleteStudentDispatchType, GetListDispatchType, LoadingDispatchType, UpdateStudentActionDispatchType } from "./type"
 
-import { createSlice  } from "@reduxjs/toolkit";
 export interface IStudent {
-    _id?: number  ,
+    _id?: number | string ,
     name: string,
     // birth: number,
     price: number,

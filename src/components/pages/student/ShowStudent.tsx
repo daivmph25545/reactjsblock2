@@ -24,6 +24,7 @@ const ShowStudent = () => {
         dispatch(loadingStudent(true))
         dispatch(fetchSinhVienAction())
     }, [dispatch])
+    
     if (!studentState.isDataLoaded) {
         return <div>Loading</div>
     }
