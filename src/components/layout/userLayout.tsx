@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom"
 import UserHeader from "./header"
-import Banner from "./slider"
 import UserFooter from "./footer"
+import Banner from "./slider"
+
 
 const UserLayout = () => {
     return <div>

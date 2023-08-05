@@ -8,7 +8,6 @@ const AddStudent = () => {
 
     const [name, setName] = useState<string>('')
     const [birth, setBirth] = useState<number>(0)
-    // const [_id, setId] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
     const [description, setDes] = useState<string>('')
     const dispatch: Dispatch<any> = useDispatch()
@@ -16,14 +15,12 @@ const AddStudent = () => {
 
     const add = () => {
         const sv: IStudent = {
-            // _id,
             name,
-            // birth,
             price,
             description
         }
         dispatch(addStudent(sv))
-        navigate('/')
+        navigate('/admin')
     }
 
 
