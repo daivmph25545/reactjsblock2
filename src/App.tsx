@@ -8,6 +8,7 @@ import Signup from './components/pages/student/signup';
 import UserLayout from './components/layout/userLayout';
 import ProductDetail from './components/pages/student/productDetail';
 import DetailLayout from './components/layout/detailLayout';
+import HomePage from './components/pages/student/Homepage';
 
 
 
@@ -21,7 +22,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/' element={<UserLayout />}>
-        {/* <Route index element={<Homepage />} /> */}
+        <Route index element={<HomePage />} />
         </Route>
         {/* <Route path='product/:id' element={<DetailLayout />} /> */}
         
