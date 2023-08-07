@@ -5,8 +5,8 @@ import { studentApi } from './student/student.service';
 
 export const store = configureStore({
   reducer: {
-    // counter: counterSlice,
     student: studentSlice,
+    
     
     [studentApi.reducerPath]: studentApi.reducer,
 

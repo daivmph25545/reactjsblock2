@@ -139,10 +139,10 @@ export function deleteStudent(sv :IStudent) {
 
 // Update sv
 
-export const updateStudent = (updateStudent: IStudent) => {
+export const updateStudent = (updateProduct:IStudent) => {
     return async (dispatch: UpdateStudentActionDispatchType) => {
         try {
-            const response = await fetch(`http://localhost:3001/students/${updateStudent._id}`,{
+            const response = await fetch(`http://localhost:8088/api/products/products/${updateProduct._id}}`,{
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

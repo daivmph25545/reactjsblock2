@@ -1,8 +1,25 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import { Dispatch } from "redux"
+import { useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { IRootState } from "../../../store"
+import { fetchSinhVienAction } from "../../../store/student/action"
 
-const ProductDetail = () => {
-   
+const StudentDetail = () => {
+    const { id } = useParams()
+    const dispatch: Dispatch<any> = useDispatch()
+    const studentState = useSelector(
+        (state: IRootState) => state.sinhviens
+    )
+
+    useEffect(() => {
+        dispatch(fetchSinhVienAction())
+    }, [dispatch])
+
+
+    const studentList = studentState.sinhviens.find(sv => sv._id === id)
+
 
     return <div>
         <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -11,11 +28,9 @@ const ProductDetail = () => {
                     {/* <img src={products.images?.[0].base_url} alt="" className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" /> */}
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <div className="pb-2">
-                            {/* <span className="title-font font-medium text-[30px] pr-4 text-[#D70018]">{products.price} ₫</span>
-                            <span className="title-font font-medium text-[19px] line-through text-[#707070]">{products.original_price} ₫</span> */}
+                            <span className="title-font font-medium text-[30px] pr-4 text-[#D70018]">{studentList?.price} ₫</span>
                         </div>
-                        {/* <h2 className="text-sm title-font text-gray-500 tracking-widest">{products.brand?.name}</h2>
-                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{products.name}</h1> */}
+                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{studentList?.name}</h1>
                         <div className="flex mb-4">
                             <span className="flex items-center">
                                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
@@ -53,7 +68,7 @@ const ProductDetail = () => {
                                 </a>
                             </span>
                         </div>
-                        <p className="leading-relaxed"> Mô tả ngắn: Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan tâm đến thiết kế sản phẩm trước. Với phiên bản A73, Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến cảm giác sang trọng và tinh tế.</p>
+                        <p className="leading-relaxed"> MÔ TẢ:  {studentList?.description}</p>
                         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                             <div className="flex">
                                 <span className="mr-3">Màu</span>
@@ -89,7 +104,7 @@ const ProductDetail = () => {
                         </div>
                     </div>
                 </div>
-                <h1 className="text-[30px] font-medium font-[Roboto] pl-[100px] pt-4">Sản Phẩm Tương Tự</h1>
+                {/* <h1 className="text-[30px] font-medium font-[Roboto] pl-[100px] pt-4">Sản Phẩm Tương Tự</h1> */}
                 <div className="flex pl-[140px] py-5 gap-3">
                     {/* <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md " />
                     <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md" />
@@ -99,18 +114,18 @@ const ProductDetail = () => {
             </div>
         </section>
         <div className=" px-[60px]">
-            <div className=" bg-[#F2F2F2] rounded-md h-[250px]">
+            {/* <div className=" bg-[#F2F2F2] rounded-md h-[250px]">
                 <h1 className="text-[#D70018] text-center text-[30px] font-medium py-[10px]">ĐẶC ĐIỂM NỔI BẬT</h1>
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Camera chất lượng, bắt trọn từng khoảng khắc - Cụm 4 camera với cảm biến chính lên đến 108 MP</p>
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Thưởng thức không gian giải trí cực đỉnh - Màn hình lớn 6.7 inch, độ phân giải Full HD+, 120Hz mượt mà</p>
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Cấu hình Galaxy A73 5G được nâng cấp mạnh với chip Snapdragon 778G, RAM lên đến 8 GB</p>
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Chiến game thoải mái không lo gián đoạn - Viên pin lớn 5000 mAh, hỗ trợ sạc nhanh 25 W</p>
-            </div>
-            {/* <div className="text-[20px] font-medium text-justify" dangerouslySetInnerHTML={{ __html: (products.description)?.substring(0,4000) }}></div> */}
-               <div className="mt-[50px] ml-[650px]"> 
-               <button className="w-[400px] h-[50px] border-2 font-medium text-[20px] border-black rounded-[10px] ">Xem Thêm</button>
-               </div>
+            </div> */}
+            {/* <div className="text-[20px] font-medium text-justify" >{studentList?.description}</div> */}
+            {/* <div className="mt-[50px] ml-[650px]">
+                <button className="w-[400px] h-[50px] border-2 font-medium text-[20px] border-black rounded-[10px] ">Xem Thêm</button>
+            </div> */}
         </div>
     </div>
 }
-export default ProductDetail
+export default StudentDetail

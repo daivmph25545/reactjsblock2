@@ -4,14 +4,17 @@ import { Dispatch } from "redux"
 import { IStudent, addStudent } from "../../../store/student/action"
 import { useNavigate } from "react-router-dom"
 
+
+
 const AddStudent = () => {
 
     const [name, setName] = useState<string>('')
-    const [birth, setBirth] = useState<number>(0)
     const [price, setPrice] = useState<number>(0)
     const [description, setDes] = useState<string>('')
     const dispatch: Dispatch<any> = useDispatch()
     const navigate = useNavigate()
+    
+   
 
     const add = () => {
         const sv: IStudent = {

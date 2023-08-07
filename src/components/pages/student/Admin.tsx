@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
 import { useDispatch } from "react-redux"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { IStudent, deleteStudent, fetchSinhVienAction, loadingStudent, updateStudent } from "../../../store/student/action";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../store";
@@ -17,8 +17,17 @@ const Admin = () => {
     const studentState = useSelector(
         (state: IRootState) => state.sinhviens
     )
+    const [search, setSearch] = useState("")
+    const [filter, setFilterStudent] = useState(studentState.sinhviens)
 
 
+
+    useEffect(() => {
+        const filtered = studentState.sinhviens.filter(sv => {
+            sv.name.toLowerCase().includes(search.toLowerCase())
+        });
+        setFilterStudent(filtered);
+    }, [studentState.sinhviens, search]);
 
     useEffect(() => {
         dispatch(loadingStudent(true))
@@ -85,30 +94,18 @@ const Admin = () => {
                                 <div className="flex justify-between">
 
                                     <h2 className="text-2xl font-semibold text-[#5F5E61] leading-tight">SẢN PHẨM CHUNG</h2>
-                
+
                                     <Link to={"create"}>
                                         <button className="rounded-full bg-purple-500 hover:bg-blue-500 w-[100px] h-[30px] text-white">Thêm </button>
                                     </Link>
                                     <Cart />
-                                    
+
                                 </div>
-                                <span className="text-[#5A6169] text-[16px] py-4">Danh mục sản phẩm</span>
+                                <span className="text-[#5A6169] text-[16px] py-4">Tìm kiếm sản phẩm</span>
                                 <div className="my-2 flex sm:flex-row flex-col">
                                     <div className="flex flex-row mb-1 sm:mb-0">
                                         <div className="relative">
-                                            <select
-                                                className=" h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-[352px] bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                                                <option>All</option>
-                                                <option>Điện Thoại</option>
-                                                {/* <option>Laptop</option>
-                                                <option>Máy Tính Bảng</option> */}
-                                            </select>
-                                            <div
-                                                className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                                </svg>
-                                            </div>
+                                            <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." />
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +164,7 @@ const Admin = () => {
                                                             <p className="text-gray-900 whitespace-no-wrap" >{sv.description}</p>
                                                         </td>
                                                         <td className="px-10 py-12 border-b border-gray-200 bg-white text-sm flex">
-                                                            <Link to={`/edit/${sv._id}`}>
+                                                            <Link to={`edit/${sv._id}`}>
                                                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" >Sửa</button>
                                                             </Link>
                                                             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-2" onClick={e => handleDeletesv(sv)}>Xoá</button>
@@ -203,7 +200,7 @@ const Admin = () => {
                 </div>
 
             </div>
-            
+
         </>
     )
 }

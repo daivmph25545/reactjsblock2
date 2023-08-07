@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom"
 import UserHeader from "./header"
 import Menuheader from "./menu"
-import ProductDetail from "../pages/student/productDetail"
 import UserFooter from "./footer"
+import StudentDetail from "../pages/student/productDetail"
 
 const DetailLayout = () =>{
     return <div>
         <UserHeader/>
         <Menuheader/>
-        <ProductDetail/>
+        <StudentDetail/>
         <Outlet/>
         <UserFooter/>
     </div>
