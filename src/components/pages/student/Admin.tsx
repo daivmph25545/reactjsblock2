@@ -17,17 +17,11 @@ const Admin = () => {
     const studentState = useSelector(
         (state: IRootState) => state.sinhviens
     )
-    const [search, setSearch] = useState("")
-    const [filter, setFilterStudent] = useState(studentState.sinhviens)
+    
 
 
 
-    useEffect(() => {
-        const filtered = studentState.sinhviens.filter(sv => {
-            sv.name.toLowerCase().includes(search.toLowerCase())
-        });
-        setFilterStudent(filtered);
-    }, [studentState.sinhviens, search]);
+ 
 
     useEffect(() => {
         dispatch(loadingStudent(true))
@@ -103,11 +97,11 @@ const Admin = () => {
                                 </div>
                                 <span className="text-[#5A6169] text-[16px] py-4">Tìm kiếm sản phẩm</span>
                                 <div className="my-2 flex sm:flex-row flex-col">
-                                    <div className="flex flex-row mb-1 sm:mb-0">
+                                    {/* <div className="flex flex-row mb-1 sm:mb-0">
                                         <div className="relative">
                                             <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." />
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                     <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -158,7 +152,7 @@ const Admin = () => {
                                                         </td>
 
                                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                            {/* <img className="text-gray-900 whitespace-no-wrap w-[100px]" src={product.images?.[0].base_url}></img> */}
+                                                            <img className="text-gray-900 whitespace-no-wrap w-[120px]" src="/images1.jpg"></img>
                                                         </td>
                                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-[15px] font-medium">
                                                             <p className="text-gray-900 whitespace-no-wrap" >{sv.description}</p>

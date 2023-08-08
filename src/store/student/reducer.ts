@@ -44,17 +44,13 @@ const studentReducer = (state: IStudentState = initSinhVienState, action: ICombi
             }
             break;
         case 'update-sv':
-            state = {
+            return {
                 ...state,
-                
-                sinhviens: state.sinhviens.filter((item:any) => {
-                    const newProduct = action.payload;
-                    item.id = newProduct?._id? newProduct : item
-                })
+                sinhviens: state.sinhviens.map(item =>
+                    item._id === action.payload._id ? action.payload : item)
             }
-        break;
-
     }
+
 
     return state
 }

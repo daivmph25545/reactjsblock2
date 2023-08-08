@@ -9,8 +9,11 @@ const Student = () => {
     const [onAddStudent] = useAddStudentMutation()
     const [onEditStudent] = useEditStudentMutation()
     const [onDeleteStudent] =useDeleteStudentMutation()
+    
 
     const { isError, isLoading, data: studenList } = useGetStudentListQuery(null);
+    console.log(studenList);
+    
     if (isLoading) {
         return <>Loading ....</>
     }
@@ -20,17 +23,17 @@ const Student = () => {
     }
     return (
         <>
-            <ul>
-                {
-                    (studenList as IStudent[] || []).map(student => {
-                        return <li key={student.id}>{student.name}
-                            <button onClick={() => onEditStudent({ id: student.id, name: 'Nguyễn A', birth: 2007 })}>Edit</button>
-                            <button onClick={() => onDeleteStudent(student)}>Xoá</button>
-                            
-                        </li>
-                    })
-                }
-            </ul>
+           
+        <ul>
+            {
+                (studenList.datas as IStudent[] || []).map(student =>{
+                   return  <li key={student.id}>{student.name}
+                    <button onClick={() => onEditStudent({id:student.id,name:"Nghĩa xấu try",birth:2007})}>sửa</button>
+                    <button onClick={() => onDeleteStudent(student)}>xóa</button>
+                   </li>
+                })
+            }
+        </ul>
             <button onClick={() => onAddStudent({ name: "ABC", birth: 2006 })}>Add</button>
         </>
     )
