@@ -3,7 +3,6 @@ import { AddStudentDispatchType, DeleteStudentDispatchType, GetListDispatchType,
 export interface IStudent {
     _id?: number | string ,
     name: string,
-    // birth: number,
     price: number,
     description: string
 }

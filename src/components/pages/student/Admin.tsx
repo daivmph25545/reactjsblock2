@@ -17,17 +17,15 @@ const Admin = () => {
     const studentState = useSelector(
         (state: IRootState) => state.sinhviens
     )
-    const [search, setSearch] = useState("")
-    const [filter, setFilterStudent] = useState(studentState.sinhviens)
+    
+    const [search, setSearch] = useState<string>('')
+
+    const filterProducts = studentState.sinhviens.filter(sv =>
+        sv.name.toLowerCase().includes(search.toLowerCase())
+    )
 
 
-
-    useEffect(() => {
-        const filtered = studentState.sinhviens.filter(sv => {
-            sv.name.toLowerCase().includes(search.toLowerCase())
-        });
-        setFilterStudent(filtered);
-    }, [studentState.sinhviens, search]);
+ 
 
     useEffect(() => {
         dispatch(loadingStudent(true))
@@ -145,7 +143,7 @@ const Admin = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {studentState.sinhviens.map((sv, index) => {
+                                                {filterProducts.map((sv, index) => {
                                                     return <tr key={index}>
                                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-[15px] font-medium">
                                                             <p className="text-gray-900 whitespace-no-wrap">{sv._id}</p>
@@ -158,7 +156,7 @@ const Admin = () => {
                                                         </td>
 
                                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                            {/* <img className="text-gray-900 whitespace-no-wrap w-[100px]" src={product.images?.[0].base_url}></img> */}
+                                                            <img className="text-gray-900 whitespace-no-wrap w-[120px]" src="/images1.jpg"></img>
                                                         </td>
                                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-[15px] font-medium">
                                                             <p className="text-gray-900 whitespace-no-wrap" >{sv.description}</p>
