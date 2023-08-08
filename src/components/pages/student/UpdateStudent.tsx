@@ -12,34 +12,33 @@ import { updateStudent } from "../../store-tk/counter/counterSlice";
 const UpdateStudent = () => {
     const dispatch = useDispatch()
 
-    // const { studentId } = useParams()
+    const { studentId } = useParams()
     const navigate = useNavigate()
 
-    // const studentToUpdate = useSelector((state: IRootState) => {
-    //     return state.sinhviens.sinhviens.find(sv => sv._id === studentId);
-    // });
+    const studentToUpdate = useSelector((state: IRootState) => {
+        return state.sinhviens.sinhviens.find(sv => sv._id === studentId);
+    });
+    
 
-    // const [name, setName] = useState(studentToUpdate ? studentToUpdate.name : "");
-    // const [price, setPrice] = useState(studentToUpdate ? studentToUpdate.price : 0);
-    // const [description, setDescription] = useState(studentToUpdate ? studentToUpdate.description : "");
+    const [name, setName] = useState(studentToUpdate ? studentToUpdate.name : "");
+    const [price, setPrice] = useState(studentToUpdate ? studentToUpdate.price : 0);
+    const [description, setDescription] = useState(studentToUpdate ? studentToUpdate.description : "");
 
-    // const handleUpdate = () => {
-    //     if (!studentToUpdate) {
-    //         return; // Thoát khỏi hàm nếu studentToUpdate là undefined
-    //     }
+    const handleUpdate = () => {
+        if (!studentToUpdate) {
+            return; 
+        }
 
-    //     const updatedStudent = {
-    //         _id: studentToUpdate._id,
-    //         name: name!,
-    //         price: price!,
-    //         description: description!,
-    //         // Các trường khác của sinh viên nếu có
-    //     };
-    //     // Gửi action cập nhật thông tin sinh viên
-    //     // Thay "updateStudentAction" bằng action tương ứng trong file action của bạn
-    //     dispatch(updateStudent(updatedStudent));
-    //     navigate('/admin')
-    // };
+        const updatedStudent = {
+            _id: studentToUpdate._id,
+            name: name!,
+            price: price!,
+            description: description!,
+        };
+       
+        dispatch(updateStudent(updatedStudent));
+        navigate('/admin')
+    };
 
 
 
@@ -52,8 +51,8 @@ const UpdateStudent = () => {
                         <input
                             className="w-full rounded-lg border-2 bordered-b border-black p-3 font-medium text-sm"
                             type="text"
-                        //     value={name}
-                        // onChange={(event) => setName(event.target.value)} 
+                            value={name}
+                        onChange={(event) => setName(event.target.value)} 
                         />
                     </div>
 
@@ -63,8 +62,8 @@ const UpdateStudent = () => {
                             <input
                                 className="w-full rounded-lg border-2 bordered-b border-black p-3 font-medium text-sm"
                                 type='number'
-                            //     value={price}
-                            // onChange={(event) => setPrice(+event.target.value)} 
+                                value={price}
+                            onChange={(event) => setPrice(+event.target.value)} 
                             />
                         </div>
                     </div>
@@ -75,8 +74,8 @@ const UpdateStudent = () => {
                             <input
                                 className="w-full rounded-lg border-2 bordered-b border-black p-3 font-medium text-sm"
                                 type='text'
-                            //     value={description}
-                            // onChange={(event) => setDescription(event.target.value)} 
+                                value={description}
+                            onChange={(event) => setDescription(event.target.value)} 
                             />
                         </div>
                     </div>
@@ -87,7 +86,7 @@ const UpdateStudent = () => {
                         <button
                             type="button"
                             className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
-                            // onClick={handleUpdate}
+                            onClick={handleUpdate}
                         >
                             Cập Nhật
                         </button>

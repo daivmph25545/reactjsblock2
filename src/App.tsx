@@ -13,7 +13,6 @@ import StudentDetail from './components/pages/student/productDetail';
 import UpdateStudent from './components/pages/student/UpdateStudent';
 import Register from './components/pages/student/signup';
 import Login from './components/pages/student/signin';
-import { toast } from 'react-toastify';
 
 
 

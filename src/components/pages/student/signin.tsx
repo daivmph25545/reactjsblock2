@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Signin } from '../../../API/auth';
+import { Signin } from '../../../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../../../hooks';
 interface Form {

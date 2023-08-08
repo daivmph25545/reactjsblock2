@@ -99,11 +99,11 @@ const Admin = () => {
                                     <Cart />
 
                                 </div>
-                                <span className="text-[#5A6169] text-[16px] py-4">Tìm kiếm sản phẩm</span>
+                                <span className="text-[#5A6169] text-[16px] py-4">TÌM KIẾM SẢN PHẨM</span>
                                 <div className="my-2 flex sm:flex-row flex-col">
                                     <div className="flex flex-row mb-1 sm:mb-0">
                                         <div className="relative">
-                                            <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." />
+                                            <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Nhập tên sản phẩm" />
                                         </div>
                                     </div>
                                 </div>

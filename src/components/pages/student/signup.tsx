@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Signup } from '../../../API/auth';
+import { Signup } from '../../../api/auth';
 interface Form {
   name : string,
   email : string,
